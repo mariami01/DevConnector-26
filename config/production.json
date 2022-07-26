@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://mariammiz:randomPwd@devconnector.eoebvdk.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "da701b4e20435748335f",
+    "githubSecret": "a64a9e3b60d664840320e219b3232453a707808e"
+}
