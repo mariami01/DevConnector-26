@@ -1,5 +1,5 @@
 {
     "mongoURI": "mongodb+srv://mariammiz:randomPwd@devconnector.eoebvdk.mongodb.net/?retryWrites=true&w=majority",
     "jwtSecret": "mysecrettoken",
-    "githubToken": "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"
+    "githubToken": "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"
 }
