@@ -29,6 +29,7 @@ router.post(
   check('email', 'Please include a valid email').isEmail(),
   check('password', 'Password is required').exists(),
   async (req, res) => {
+    console.log('entered auth');
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -55,8 +56,8 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
 
       jwt.sign(

@@ -7,7 +7,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
 } from './types';
 
 // Load User
@@ -17,11 +17,11 @@ export const loadUser = () => async (dispatch) => {
 
     dispatch({
       type: USER_LOADED,
-      payload: res.data
+      payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: AUTH_ERROR
+      type: AUTH_ERROR,
     });
   }
 };
@@ -33,7 +33,7 @@ export const register = (formData) => async (dispatch) => {
 
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
     dispatch(loadUser());
   } catch (err) {
@@ -44,7 +44,7 @@ export const register = (formData) => async (dispatch) => {
     }
 
     dispatch({
-      type: REGISTER_FAIL
+      type: REGISTER_FAIL,
     });
   }
 };
@@ -54,11 +54,12 @@ export const login = (email, password) => async (dispatch) => {
   const body = { email, password };
 
   try {
+    console.log('====login');
     const res = await api.post('/auth', body);
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
 
     dispatch(loadUser());
@@ -70,7 +71,7 @@ export const login = (email, password) => async (dispatch) => {
     }
 
     dispatch({
-      type: LOGIN_FAIL
+      type: LOGIN_FAIL,
     });
   }
 };

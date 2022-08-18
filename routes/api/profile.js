@@ -103,6 +103,7 @@ router.post(
 // @access   Public
 router.get('/', async (req, res) => {
   try {
+    console.log('get all profiles');
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
     res.json(profiles);
   } catch (err) {
