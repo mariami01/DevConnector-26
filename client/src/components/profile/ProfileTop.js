@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import VideoCall from '../video-call';
+import VideoCall from '../video-call/video';
 
 const ProfileTop = ({
   profile: {
@@ -12,6 +12,8 @@ const ProfileTop = ({
     user: { name, avatar },
   },
 }) => {
+  const [activeVideo, setActiveVideo] = useState(true);
+
   return (
     <div className='profile-top bg-primary p-2'>
       <img className='round-img my-1' src={avatar} alt='' />
@@ -41,10 +43,16 @@ const ProfileTop = ({
               ))
           : null}
       </div>
-      <button type='button' className='btn btn-light'>
-        Start Video Call
-      </button>
-      <VideoCall />
+      <div>
+        <button
+          type='button'
+          className='btn btn-light'
+          onClick={() => setActiveVideo(!activeVideo)}
+        >
+          {activeVideo == true ? 'Close a Video Chat' : 'Open a Video Chat'}
+        </button>
+        {activeVideo ? <VideoCall /> : null}
+      </div>
     </div>
   );
 };
